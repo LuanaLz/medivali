@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">medivali</string>
+    <string name="listar_paciente">Listar Paciente</string>
+    <string name="listar_medico">Listar Medico</string>
+    <string name="listar_consulta">Listar Consulta</string>
+    <string name="adicionar_elemento">Adicionar</string>
+    <string-array name="elements">
+        <item>Adicionar Paciente</item>
+        <item>Adicionar Médico</item>
+        <item>Adicionar Consulta</item>
+    </string-array>
+    <string-array name="array_tipo_sanguineo">
+        <item>Tipo A+</item>
+        <item>Tipo A-</item>
+        <item>Tipo B+</item>
+        <item>Tipo B-</item>
+        <item>Tipo AB+</item>
+        <item>Tipo AB-</item>
+        <item>Tipo 0+</item>
+        <item>Tipo O-</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="td_nome_paciente">"Nome Paciente"</string>
+    <string name="td_tipo_sanguineo_paciente">Tipo sanguíneo</string>
+    <string name="title_novo_paciente">Adicionar novo paciente</string>
+    <string name="td_phone">Celular</string>
+    <string name="td_phone_fix">Telefone</string>
+    <string name="bt_add_paciente">Adicionar paciente</string>
+    <string name="title_novo_medico">Adicionar novo médico</string>
+    <string name="td_nome_medico">Nome médico</string>
+    <string name="td_crm_medico">CRM</string>
+    <string name="bt_add_medico">Adicionar médico</string>
+    <string name="bt_voltar">Voltar</string>
+    <string name="title_nova_consulta">Adicionar nova consulta</string>
+    <string name="bt_add_consulta">Adicionar consulta</string>
+    <string name="title_consultas">Consultas</string>
+    <string name="title_medicos">Médicos</string>
+    <string name="title_pacientes">Pacientes</string>
+</resources>

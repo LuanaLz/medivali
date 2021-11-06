@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentListButton">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_list_paciente"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="4dp"
+            android:backgroundTint="@color/teal_700"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/listar_paciente"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/bt_list_medico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:backgroundTint="@color/teal_700"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/listar_medico"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/bt_list_consulta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/listar_consulta"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
