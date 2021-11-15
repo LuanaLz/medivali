@@ -69,4 +69,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_MEDICO);
         db.execSQL(SQL_DELETE_PACIENTE);
     }
+
+    /*!
+     * CRUD Consulta
+     */
+    public long createConstulta(Consulta c) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("data_hora_inicio", c.getData_hora_inicio());
+        cv.put("data_hora_fim", c.getData_hora_fim());
+        cv.put("observacao", c.getObservacao());
+        long id = db.insert(TABLE_CONSULTA, null, cv);
+        db.close();
+        return id;
+    }
+
+    public long updateConsulta(Consulta c) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("data_hora_inicio", c.getData_hora_inicio());
+        cv.put("data_hora_fim", c.getData_hora_fim());
+        cv.put("observacao", c.getObservacao());
+        long rows = db.update(TABLE_CONSULTA, cv, "_id = ?", new String[]{String.valueOf(c.getId())});
+        db.close();
+        return rows;
+    }
+
+    public long deleteConsulta(Consulta c) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long rows = db.delete(TABLE_CONSULTA, "_id = ?", new String[]{String.valueOf(c.getId())});
+        db.close();
+        return rows;
+    }
+
+
 }

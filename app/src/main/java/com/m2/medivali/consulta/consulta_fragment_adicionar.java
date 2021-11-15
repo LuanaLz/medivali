@@ -7,60 +7,73 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.m2.medivali.R;
+import com.m2.medivali.database.DatabaseHelper;
+import com.m2.medivali.consulta.Consulta;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link consulta_fragment_adicionar#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class consulta_fragment_adicionar extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    EditText etNomePaciente;
+    EditText etNomeMedico;
+    EditText etDataInicio;
+    EditText etDataFim;
 
     public consulta_fragment_adicionar() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment consulta_fragment_adicionar.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static consulta_fragment_adicionar newInstance(String param1, String param2) {
-        consulta_fragment_adicionar fragment = new consulta_fragment_adicionar();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_consulta_adicionar, container, false);
+        View v = inflater.inflate(R.layout.fragment_consulta_adicionar, container, false);
+
+        etNomePaciente = v.findViewById(R.id.td_nome_paciente);
+        etNomeMedico = v.findViewById(R.id.td_nome_medico);
+        etDataInicio = v.findViewById(R.id.td_data_inicial);
+        etDataFim = v.findViewById(R.id.td_data_fim);
+
+        Button btnAdicionar = v.findViewById(R.id.bt_add_consulta);
+
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adicionar();
+            }
+        });
+
+        return v;
     }
+
+    private void adicionar () {
+        if (etNomePaciente.getText().toString().equals("")) {
+            Toast.makeText(getActivity(), "!", Toast.LENGTH_LONG).show();
+        } else if (etNomeMedico.getText().toString().equals("")) {
+            Toast.makeText(getActivity(), "!", Toast.LENGTH_LONG).show();
+        } else if (etDataInicio.getText().toString().equals("")) {
+            Toast.makeText(getActivity(), "!", Toast.LENGTH_LONG).show();
+        } else if (etDataFim.getText().toString().equals("")) {
+            Toast.makeText(getActivity(), "!", Toast.LENGTH_LONG).show();
+        } else {
+            DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
+            Consulta c = new Consulta();
+            c.setId(0);
+            c.setData_hora_inicio(etDataInicio.getText().toString());
+            c.setData_hora_fim(etDataFim.getText().toString());
+            databaseHelper.createConstulta(c);
+            Toast.makeText(getActivity(), "saved!", Toast.LENGTH_LONG).show();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.listViewConsulta, new consulta_fragment_listar()).commit();
+        }
+    }
+
 }

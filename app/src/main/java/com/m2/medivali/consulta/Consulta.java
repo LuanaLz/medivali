@@ -1,9 +1,9 @@
 package com.m2.medivali.consulta;
 
-public class Consulta implements  java.io.Serializable {
+public class Consulta implements java.io.Serializable {
 
 private int id;
-private  String data_hora_inicio;
+private String data_hora_inicio;
 private String data_hora_fim;
 private String observacao;
 
